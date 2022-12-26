@@ -1,6 +1,3 @@
-import {Grid,useMediaQuery,Button,Typography,TextField} from '@mui/material'
-import {useTheme} from '@mui/material/styles'
-import {ArrowBackIos,Close,PanoramaFishEye} from '@mui/icons-material';
 import {useCookies} from 'react-cookie'
 import Register from './components/Register';
 import GamesPage from './components/GamesPage';
@@ -11,13 +8,12 @@ import GamePlay from './components/GamePlay';
 import HomePage from './components/HomePage';
 
 function App() {
-  const theme = useTheme()
   const [cookies, setCookie] = useCookies();
 
   return (
     <>
     <Routes>
-      <Route path="/" element={cookies.jwtoken === undefined?<HomePage />:<GamesPage />} />
+      <Route path="/" element={cookies.tttuser === undefined?<HomePage />:<GamesPage />} />
       <Route path = 'login' element = {<Login />}/>
       <Route path = 'register' element = {<Register />}/>
       <Route path = 'invite' element = {<Invite />}/>

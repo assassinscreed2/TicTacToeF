@@ -1,6 +1,6 @@
 import {Grid,useMediaQuery,Button,Typography,TextField} from '@mui/material'
 import {useTheme} from '@mui/material/styles'
-import {ArrowBackIos,Close,ContentPasteSearchOutlined,LocationSearching,PanoramaFishEye} from '@mui/icons-material';
+import {ArrowBackIos,Close,PanoramaFishEye} from '@mui/icons-material';
 import {useNavigate,useLocation} from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import {useCookies} from 'react-cookie'
@@ -52,7 +52,6 @@ function GamePlay() {
       obj[position] = cookies.tttuser
       obj['turn'] = game.users[0] === cookies.tttuser?game.users[1]:game.users[0]
       
-      console.log('game',game)
       const data = await fetch('https://tictactoebackend-t2lr.onrender.com/move',{
             method: 'POST',
             headers:{
@@ -80,7 +79,6 @@ function GamePlay() {
     })
 
     const data = await res.json();
-    console.log(data)
     navigate('/')
   }
 
@@ -115,46 +113,46 @@ function GamePlay() {
           {/* x1 x2 x3 */}
           <Grid item container justifyContent="space-between"style={{marginTop:"1em"}}>
             <Grid item onClick={()=>setPostition("x1")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-              {position !== undefined && position === "x1" && game[position] === "undefined" ? <Close />:<></>}
-              {game.x1 !== "undefined"?game.x1 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+              {position !== undefined && position === "x1" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF",color:"#2C8DFF"}}/>:<></>}
+              {game.x1 !== "undefined"?game.x1 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("x2")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "x2" && game[position] === "undefined" ? <Close />:<></>}
-              {game.x2 !== "undefined"?game.x2 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "x2" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}} />:<></>}
+              {game.x2 !== "undefined"?game.x2 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("x3")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "x3" && game[position] === "undefined" ? <Close />:<></>}
-              {game.x3 !== "undefined"?game.x3 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "x3" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.x3 !== "undefined"?game.x3 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
           </Grid>
           {/* y1 y2 y3 */}
           <Grid item container justifyContent="space-between">
             <Grid item onClick={()=>setPostition("y1")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "y1" && game[position] === "undefined" ? <Close />:<></>}
-              {game.y1 !== "undefined"?game.y1 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "y1" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.y1 !== "undefined"?game.y1 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("y2")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "y2" && game[position] === "undefined" ? <Close />:<></>}
-              {game.y2 !== "undefined"?game.y2 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "y2" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.y2 !== "undefined"?game.y2 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("y3")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "y3" && game[position] === "undefined" ? <Close />:<></>}
-              {game.y3 !== "undefined"?game.y3 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "y3" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.y3 !== "undefined"?game.y3 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
           </Grid>
           {/* z1 z2 z3 */}
           <Grid item container justifyContent="space-between">
             <Grid item onClick={()=>setPostition("z1")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "z1" && game[position] === "undefined" ? <Close />:<></>}
-              {game.z1 !== "undefined"?game.z1 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "z1" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.z1 !== "undefined"?game.z1 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("z2")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "z2" && game[position] === "undefined" ? <Close />:<></>}
-              {game.z2 !== "undefined"?game.z2 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "z2" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.z2 !== "undefined"?game.z2 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid>
             <Grid item onClick={()=>setPostition("z3")} style={{minHeight:"5em",minWidth:"5em",maxHeight:"5em",maxWidth:"5em",backgroundColor:"white"}}>
-            {position !== undefined && position === "z3" && game[position] === "undefined" ? <Close />:<></>}
-              {game.z3 !== "undefined"?game.z3 === cookies.tttuser?<Close />:<PanoramaFishEye />:<></>}
+            {position !== undefined && position === "z3" && game[position] === "undefined" ? <Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<></>}
+              {game.z3 !== "undefined"?game.z3 === cookies.tttuser?<Close style={{fontSize:"5em",color:"#2C8DFF"}}/>:<PanoramaFishEye style={{fontSize:"5em",color:"#FF4F4F"}}/>:<></>}
             </Grid> 
           </Grid>
       </Grid>
@@ -176,7 +174,7 @@ function GamePlay() {
       </Grid>
       </>}
       {(!end && (game && game.turn === cookies.tttuser)) && <Button variant="contained" disabled={position === undefined?true:false} onClick={() => handleMove()} style={{width:"100%",marginTop:"auto"}}>Submit</Button>}
-      {end && <Button variant="contained" onClick={() => handleDelete()} style={{width:"100%",marginTop:"auto"}}>Delete Game</Button>}
+      {end && <Button variant="contained" onClick={() => handleDelete()} style={{width:"100%",marginTop:"auto",backgroundColor:"#F2C94C"}}>Delete Game</Button>}
     </Grid>
   );
 }

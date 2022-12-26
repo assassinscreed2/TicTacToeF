@@ -9,7 +9,6 @@ import Backdrop from '@mui/material/Backdrop';
 function GamesPage() {
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const [gamesData,setGameData] = useState()
   const [cookies, setCookie] = useCookies();
   const navigate = useNavigate()
@@ -39,7 +38,6 @@ function GamesPage() {
           user:cookies.tttuser
         })
       })
-      console.log(data)
       const responseData = await data.json()
       responseData.sort(function(a, b){
         const date1 = new Date(a.time)
@@ -49,7 +47,6 @@ function GamesPage() {
     })
       setGameData(responseData)
       handleClose()
-      console.log(responseData)
     }
 
     getGameData()
@@ -91,7 +88,7 @@ function GamesPage() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button onClick={()=>handleViewGame(game)} size="small" variant='contained' style={{width:"100%"}}>View game</Button>
+                <Button onClick={()=>handleViewGame(game)} size="small" variant='contained' style={{width:"100%",backgroundColor:"#F2C94C"}}>View game</Button>
               </CardActions>
             </Card>
             ))
@@ -99,14 +96,14 @@ function GamesPage() {
           <Typography align="center" style={{fontFamily:'Courgette',fontSize:"5em"}}>No Games Found</Typography>
         </Grid>
         <Grid item container>
-          <Button variant='contained' onClick={()=>handleNewGame()} style={{width:"100%",marginBottom:"2em"}}>Start a new game</Button>
+          <Button variant='contained' onClick={()=>handleNewGame()} style={{width:"100%",marginBottom:"2em",backgroundColor:"#F2C94C"}}>Start a new game</Button>
         </Grid></>
         }
         
       </Grid>
       {
         gamesData && gamesData.length !==0 && <Grid item style={{position:"absolute",marginLeft:matchesMD?"15em":undefined,marginTop:matchesMD?"37em":undefined}}>
-        <Button onClick={()=>handleNewGame()} variant='contained'>New Game</Button>
+        <Button onClick={()=>handleNewGame()} style={{backgroundColor:"#F2C94C"}} variant='contained'>New Game</Button>
       </Grid>
       }
       

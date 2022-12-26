@@ -1,6 +1,6 @@
 import {Grid,useMediaQuery,Button,Typography,TextField} from '@mui/material'
 import {useTheme} from '@mui/material/styles'
-import {ArrowBackIos,Close,PanoramaFishEye} from '@mui/icons-material';
+import {ArrowBackIos} from '@mui/icons-material';
 import { useState } from 'react';
 import {useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
@@ -8,7 +8,6 @@ import {useNavigate} from 'react-router-dom'
 function Invite() {
     const theme = useTheme()
     const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
-    const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
     const [otherUser,setOtherUser] = useState()
     const [cookies, setCookie] = useCookies();
     const navigate = useNavigate()
@@ -45,7 +44,7 @@ function Invite() {
             <TextField style={{width:"100%"}} onChange = {(e) => setOtherUser(e.target.value)} placeholder='Type your name here' variant='filled'/>
         </Grid>
         <Grid item container style={{marginTop:"auto"}}>
-          <Button onClick={() => handleStart()} variant="contained" style={{width:"100%"}}>Start Game</Button>
+          <Button onClick={() => handleStart()} variant="contained" style={{width:"100%",backgroundColor:"#F2C94C"}}>Start Game</Button>
         </Grid>
       </Grid>
     );

@@ -1,4 +1,4 @@
-import {Grid,useMediaQuery,Button,Typography,TextField,Snackbar} from '@mui/material'
+import {Grid,useMediaQuery,Button,Typography,TextField,Snackbar,Backdrop,CircularProgress} from '@mui/material'
 import {useTheme} from '@mui/material/styles'
 import {ArrowBackIos} from '@mui/icons-material';
 import { useState } from 'react';
@@ -8,15 +8,16 @@ import {useCookies} from 'react-cookie'
 function Login() {
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const [cookies, setCookie] = useCookies();
 
   const navigate = useNavigate();
   const [user,setUser] = useState("")
   const [password,setPassword] = useState("")
   const [open,setOpen] = useState(false)
+  const [openLoading, setOpenLoading] = useState(false);
 
   const handleLogin = async () => {
+    setOpenLoading(true)
     const response = await fetch('https://tictactoebackend-t2lr.onrender.com/login',{
       method: 'POST',
       headers:{
@@ -28,7 +29,6 @@ function Login() {
         password: password
       })
     })
-    console.log(response)
 
     const responseData = await response.json();
 
@@ -39,8 +39,8 @@ function Login() {
       setTimeout(()=>handleClose(),2000)
       return;
     }
-    setCookie('jwtoken',responseData.token,{expires:new Date(Date.now() + 25892000000)})
     setCookie('tttuser',responseData.user,{expires:new Date(Date.now() + 25892000000)})
+    setOpenLoading(false)
     navigate('/')
   }
 
@@ -57,6 +57,13 @@ function Login() {
       <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em"}}>
         <ArrowBackIos />
       </Grid>
+      <Backdrop
+          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={openLoading}
+          onClick={handleClose}
+        >
+          <CircularProgress color="inherit" />
+      </Backdrop>
       <Grid container item>
         <Typography style={{width:"100%",fontWeight:900}}>Login</Typography>
         <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}}>Please Enter your details</Typography>
@@ -76,7 +83,7 @@ function Login() {
         message="Wrong Password"
         style={{marginBottom:"4em"}}
       />
-      <Button onClick={()=>{handleLogin()}} variant="contained" style={{width:"100%",marginTop:"auto"}}>Login</Button>
+      <Button onClick={()=>{handleLogin()}} variant="contained" style={{width:"100%",marginTop:"auto",backgroundColor:"#F2C94C"}}>Login</Button>
     </Grid>
   );
 }
