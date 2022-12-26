@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {Grid,useMediaQuery,Button,Typography,TextField} from '@mui/material'
+import {useTheme} from '@mui/material/styles'
+import {ArrowBackIos,Close,PanoramaFishEye} from '@mui/icons-material';
+import {useCookies} from 'react-cookie'
+import Register from './components/Register';
+import GamesPage from './components/GamesPage';
+import Login from './components/Login'
+import {Route,Routes} from 'react-router-dom'
+import Invite from './components/InvitePage';
+import GamePlay from './components/GamePlay';
+import HomePage from './components/HomePage';
 
 function App() {
+  const theme = useTheme()
+  const [cookies, setCookie] = useCookies();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={cookies.jwtoken === undefined?<HomePage />:<GamesPage />} />
+      <Route path = 'login' element = {<Login />}/>
+      <Route path = 'register' element = {<Register />}/>
+      <Route path = 'invite' element = {<Invite />}/>
+      <Route path = 'play' element = {<GamePlay />}/>
+    </Routes>
+    </>
   );
 }
 
