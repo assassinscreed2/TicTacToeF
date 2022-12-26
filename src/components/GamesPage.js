@@ -30,7 +30,7 @@ function GamesPage() {
 
   useEffect(()=>{
     async function getGameData(){
-      const data = await fetch('http://localhost:8000/home',{
+      const data = await fetch('https://tictactoebackend-t2lr.onrender.com/home',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'

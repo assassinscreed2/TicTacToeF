@@ -14,7 +14,7 @@ function Register() {
   const [password,setPassword] = useState("")
 
   const handleRegister = async () => {
-    const response = await fetch('http://localhost:8000/register',{
+    const response = await fetch('https://tictactoebackend-t2lr.onrender.com/register',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json'

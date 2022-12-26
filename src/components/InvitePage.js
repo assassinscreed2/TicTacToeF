@@ -14,7 +14,7 @@ function Invite() {
     const navigate = useNavigate()
 
     async function handleStart(){
-        const data = await fetch('http://localhost:8000/playgame',{
+        const data = await fetch('https://tictactoebackend-t2lr.onrender.com/playgame',{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'

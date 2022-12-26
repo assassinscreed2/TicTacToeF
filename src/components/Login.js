@@ -17,7 +17,7 @@ function Login() {
   const [open,setOpen] = useState(false)
 
   const handleLogin = async () => {
-    const response = await fetch('http://localhost:8000/login',{
+    const response = await fetch('https://tictactoebackend-t2lr.onrender.com/login',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json',
