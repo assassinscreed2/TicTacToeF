@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+#### DOCUMENTATION
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Overview:
+The application is deployed on ‘Render’ on the free plan. So there can be issues like long waiting to open the page or the site being inactive etc. For this reason, I have also created a small loom video showing the demo of the application.
+The Application is designed only for mobile view(e.g. IPhone SE)
 
-## Available Scripts
+Loom Video Link: https://www.loom.com/share/3dca0151b7524a80a6318aed257df1de
+Site Link: React App (tictactoefrontend.onrender.com)
 
-In the project directory, you can run:
+## Running Code
+•	Clone backend code and frontend code from the provided github link
+o	Frontend: assassinscreed2/TicTacToeF: dsf (github.com)
+o	Backend: assassinscreed2/TicTacToeB (github.com)
+•	Run command ‘npm install’ to install dependencies in backend folder and frontend folder
+•	Run the command ‘node server.js’ or ‘nodemon server.js’ in the backend folder to start the server
+•	Run the command ‘npm start’ in the frontend folder to start the react application
+•	Replace all the URLs starting with ‘https://tictactoebackend-t2lr.onrender.com’ to ‘http://localhost:8000’ in the frontend react application to run the application in localhost
 
-### `npm start`
+## Architecture
+•	Frontend is designed only for mobile view (e.g IPhone SE)
+•	Created REST APIs to
+o	Register users
+o	Login users
+o	Fetch all games for a particular user
+o	To update the move made by a user
+o	To start game
+o	To delete finished game
+•	The database used is MongoDB which contains two collections
+o	User collection: Store information about user
+o	Game collection: Store information about every ongoing or finished games between  users
+•	In each game there are nine variables which denotes the nine positions in a TicTacToe Game.
+•	After each move, ap API call is made to the server for updating the positions and an updated game positions are returned which is then rendered using the useState hook
+•	Since there is no use of webhooks and server-sent events, therefore after every move, users have to reload the web page to render the updated game positions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Difficulties
+•	The first difficulty in front of me was to design a logic for creating the application. I need to figure out in what format should I take input so that I could track the current status of the game.
+•	The other difficulty I faced was figuring out a way to keep track of opponents since there will be different opponents in every game for the same user and the user can switch between different games.
+•	There were also many bugs that I spent time on to fix
