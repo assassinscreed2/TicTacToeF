@@ -23,7 +23,7 @@ function GamePlay() {
 
   useEffect(()  =>{
     async function gameData(){
-      const data = await fetch('https://tictactoebackend-t2lr.onrender.com/playgame',{
+      const data = await fetch('http://localhost:8000/playgame',{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -52,7 +52,7 @@ function GamePlay() {
       obj[position] = cookies.tttuser
       obj['turn'] = game.users[0] === cookies.tttuser?game.users[1]:game.users[0]
       
-      const data = await fetch('https://tictactoebackend-t2lr.onrender.com/move',{
+      const data = await fetch('http://localhost:8000/move',{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -68,7 +68,7 @@ function GamePlay() {
   }
 
   const handleDelete = async () => {
-    const res = await fetch('https://tictactoebackend-t2lr.onrender.com/deletegame',{
+    const res = await fetch('http://localhost:8000/deletegame',{
       method:'POST',
       body:JSON.stringify({
         ...game

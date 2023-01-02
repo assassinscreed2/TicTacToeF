@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import {useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
 import Backdrop from '@mui/material/Backdrop';
-  import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function GamesPage() {
   const theme = useTheme()
@@ -29,7 +29,7 @@ function GamesPage() {
 
   useEffect(()=>{
     async function getGameData(){
-      const data = await fetch('https://tictactoebackend-t2lr.onrender.com/home',{
+      const data = await fetch('http://localhost:8000/home',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
@@ -67,10 +67,10 @@ function GamesPage() {
         >
           <CircularProgress color="inherit" />
       </Backdrop>
-      <Grid container style={{height:"100vh"}}  direction = {matchesMD?"column":"row"} alignItems = {matchesMD?"center":undefined} justifyContent="space-evenly">
+      <Grid container style={{height:"100vh",marginTop:matchesMD?"3em":"1em"}} direction = {matchesMD?"column":"row"} alignItems = {matchesMD?"center":undefined} justifyContent="space-evenly">
         {
           gamesData && gamesData.length !==0 ? 
-            gamesData.map((game,i)=>(<Card style={{width:"100%"}}>
+            gamesData.map((game,i)=>(<Card style={{width:matchesMD?"100%":"30%",height:matchesMD?"100%":"13em"}}>
               <CardContent>
                 <Typography variant="h5" style={{fontWeight:600}}>
                   Game with {game.users[0] === cookies.tttuser?game.users[1]:game.users[0]}
@@ -102,7 +102,7 @@ function GamesPage() {
         
       </Grid>
       {
-        gamesData && gamesData.length !==0 && <Grid item style={{position:"absolute",marginLeft:matchesMD?"15em":undefined,marginTop:matchesMD?"37em":undefined}}>
+        gamesData && gamesData.length !==0 && <Grid item style={{position:"absolute",marginLeft:matchesMD?"15em":"80%",marginTop:matchesMD?"37em":"40%"}}>
         <Button onClick={()=>handleNewGame()} style={{backgroundColor:"#F2C94C"}} variant='contained'>New Game</Button>
       </Grid>
       }

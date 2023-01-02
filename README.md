@@ -5,7 +5,6 @@ The application is deployed on ‘Render’ on the free plan. So there can be is
 The Application is designed only for mobile view(e.g. IPhone SE)
 
 Loom Video Link: https://www.loom.com/share/3dca0151b7524a80a6318aed257df1de
-Site Link: React App (tictactoefrontend.onrender.com)
 
 ## Running Code
 •	Clone backend code and frontend code from the provided github link
