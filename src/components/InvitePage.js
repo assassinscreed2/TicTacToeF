@@ -31,21 +31,21 @@ function Invite() {
     }
   
     return (
-      <Grid container style={{height:"100vh"}} direction = {matchesMD?"column":"row"}>
+      <Grid container style={{height:matchesMD?"100vh":"30em"}} direction = {matchesMD?"column":"row"}>
         <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em"}}>
           <ArrowBackIos />
         </Grid>
-        <Grid container item>
-          <Typography style={{width:"100%",fontWeight:900}}>Start a new game</Typography>
-          <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}}>Whom do you want to play with?</Typography>
-        </Grid>
-        <Grid item container style={{marginTop:"2em"}}>
-            <Typography style={{fontWeight:900}}>User Name</Typography>
-            <TextField style={{width:"100%"}} onChange = {(e) => setOtherUser(e.target.value)} placeholder='Type your name here' variant='filled'/>
-        </Grid>
-        <Grid item container style={{marginTop:"auto"}}>
-          <Button onClick={() => handleStart()} variant="contained" style={{width:"100%",backgroundColor:"#F2C94C"}}>Start Game</Button>
-        </Grid>
+          <Grid container item>
+            <Typography style={{width:"100%",fontWeight:900}} align={matchesMD?undefined:"center"}>Start a new game</Typography>
+            <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}} align={matchesMD?undefined:"center"}>Whom do you want to play with?</Typography>
+          </Grid>
+          <Grid item container style={{marginTop:"2em"}} justifyContent="center">
+              <Typography style={{fontWeight:900,width:"100%"}} align={matchesMD?undefined:"center"}>User Name</Typography>
+              <TextField style={{width:matchesMD?undefined:"30%"}} onChange = {(e) => setOtherUser(e.target.value)} placeholder='Type your name here' variant='filled'/>
+          </Grid>
+          <Grid item container style={{marginTop:"auto"}} justifyContent="center">
+            <Button onClick={() => handleStart()} variant="contained" style={{width:matchesMD?undefined:"30%",backgroundColor:"#F2C94C"}}>Start Game</Button>
+          </Grid>
       </Grid>
     );
   }
