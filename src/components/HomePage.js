@@ -8,18 +8,18 @@ function HomePage() {
   const navigate = useNavigate()
 
   return (
-    <Grid container style={{height:"100vh"}} direction = {matchesMD?"column":"row"} alignItems = {matchesMD?"center":undefined} justifyContent="space-evenly">
+    <Grid container style={{height:"100vh"}} direction = "column" alignItems = "center" justifyContent="space-evenly">
       <Grid item >
-        <Typography style={{fontFamily:'Courgette',fontSize:"2em"}}>
+        <Typography style={{fontFamily:'Courgette',fontSize:"2em"}} align="center">
           async
         </Typography>
       </Grid>
       <Grid item>
-        <Typography align="center" style={{fontFamily:'Courgette',fontSize:"5em"}}>tic tac toe</Typography>
+        <Typography align="center" style={{fontFamily:'Courgette',fontSize:matchesMD?"5em":"10em"}}>tic tac toe</Typography>
       </Grid>
-      <Grid item container>
-        <Button variant='contained' onClick={()=>navigate('/login')} style={{width:"100%",marginBottom:"2em",backgroundColor:"#F2C94C"}}>Login</Button>
-        <Button variant = 'contained' onClick={()=>navigate('/register')} style={{width:"100%",backgroundColor:"#F2C94C"}}>Register</Button>
+      <Grid item container direction="column" alignContent="center">
+        <Button variant='contained' onClick={()=>navigate('/login')} style={{width:"30%",marginBottom:"2em",backgroundColor:"#F2C94C"}}>Login</Button>
+        <Button variant = 'contained' onClick={()=>navigate('/register')} style={{width:"30%",backgroundColor:"#F2C94C"}}>Register</Button>
       </Grid>
     </Grid>
   );
