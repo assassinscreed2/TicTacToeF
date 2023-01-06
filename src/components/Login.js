@@ -53,8 +53,8 @@ function Login() {
   };
 
   return (
-    <Grid container style={{height:"100vh"}} direction = {matchesMD?"column":"row"}>
-      <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em"}}>
+    <Grid container justifyContent="center" style={{height:matchesMD?"100vh":"30em"}} direction = {matchesMD?"column":"row"}>
+      <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em",marginRight:"auto",marginLeft:"1em"}}>
         <ArrowBackIos />
       </Grid>
       <Backdrop
@@ -65,16 +65,16 @@ function Login() {
           <CircularProgress color="inherit" />
       </Backdrop>
       <Grid container item>
-        <Typography style={{width:"100%",fontWeight:900}}>Login</Typography>
-        <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}}>Please Enter your details</Typography>
+        <Typography style={{width:"100%",fontWeight:900}}  align={matchesMD?undefined:"center"}>Login</Typography>
+        <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}}  align={matchesMD?undefined:"center"}>Please Enter your details</Typography>
       </Grid>
-      <Grid item container style={{marginTop:"2em"}}>
-          <Typography style={{fontWeight:900}}>Username</Typography>
-          <TextField style={{width:"100%"}} onChange = {(e)=>{setUser(e.target.value);}} placeholder='Type your username here' variant='filled'/>
+      <Grid item container style={{marginTop:"2em"}} justifyContent="center">
+          <Typography style={{fontWeight:900,width:"100%"}}  align={matchesMD?undefined:"center"}>Username</Typography>
+          <TextField style={{width:matchesMD?"100%":"30%"}} onChange = {(e)=>{setUser(e.target.value);}} placeholder='Type your username here' variant='filled'/>
       </Grid>
-      <Grid item container style={{marginTop:"1em"}}>
-          <Typography style={{fontWeight:900}}>Password</Typography>
-          <TextField style={{width:"100%"}} onChange = {(e)=>{setPassword(e.target.value);}} placeholder='Type your password here' variant='filled'/>
+      <Grid item container style={{marginTop:"1em"}} justifyContent="center">
+          <Typography style={{fontWeight:900,width:"100%"}}  align={matchesMD?undefined:"center"}>Password</Typography>
+          <TextField style={{width:matchesMD?"100%":"30%"}} onChange = {(e)=>{setPassword(e.target.value);}} placeholder='Type your password here' variant='filled'/>
       </Grid>
       <Snackbar
         anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
@@ -83,7 +83,7 @@ function Login() {
         message="Wrong Password"
         style={{marginBottom:"4em"}}
       />
-      <Button onClick={()=>{handleLogin()}} variant="contained" style={{width:"100%",marginTop:"auto",backgroundColor:"#F2C94C"}}>Login</Button>
+      <Button onClick={()=>{handleLogin()}} variant="contained" style={{width:"30%",marginBottom:"2em",backgroundColor:"#F2C94C",marginTop:"3em"}}>Login</Button>
     </Grid>
   );
 }
