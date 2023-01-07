@@ -47,8 +47,8 @@ function Register() {
   }
 
   return (
-    <Grid container style={{height:"100vh"}} direction = {matchesMD?"column":"row"}>
-      <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em"}}>
+    <Grid container justifyContent="center" style={{height:matchesMD?"100vh":"30em"}} direction = {matchesMD?"column":"row"}>
+      <Grid onClick={()=>navigate('/')} item style={{marginTop:"1em",marginBottom:"1em",marginRight:"auto",marginLeft:"1em"}}>
         <ArrowBackIos />
       </Grid>
       <Backdrop
@@ -59,20 +59,20 @@ function Register() {
           <CircularProgress color="inherit" />
       </Backdrop>
       <Grid container item>
-        <Typography style={{width:"100%",fontWeight:900}}>Create account</Typography>
-        <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}}>Let's get to know you better</Typography>
+        <Typography style={{width:"100%",fontWeight:900}} align={matchesMD?undefined:"center"}>Create account</Typography>
+        <Typography style={{width:"100%",fontWeight:900,fontSize:"2em"}} align={matchesMD?undefined:"center"}>Let's get to know you better</Typography>
       </Grid>
-      <Grid item container style={{marginTop:"2em"}}>
-          <Typography style={{fontWeight:900}}>Your name</Typography>
-          <TextField style={{width:"100%"}} onChange = {(e)=>{setName(e.target.value);}} placeholder='Type your name here' variant='filled'/>
+      <Grid item container justifyContent="center" style={{marginTop:"2em"}}>
+          <Typography style={{fontWeight:900,width:"100%"}} align={matchesMD?undefined:"center"}>Your name</Typography>
+          <TextField style={{width:matchesMD?"100%":"30%"}} onChange = {(e)=>{setName(e.target.value);}} placeholder='Type your name here' variant='filled'/>
       </Grid>
-      <Grid item container style={{marginTop:"1em"}}>
-          <Typography style={{fontWeight:900}}>Username</Typography>
-          <TextField style={{width:"100%"}} onChange = {(e)=>{setUser(e.target.value)}} placeholder='Type your username here' variant='filled'/>
+      <Grid item container justifyContent="center" style={{marginTop:"1em"}}>
+          <Typography style={{fontWeight:900,width:"100%"}} align={matchesMD?undefined:"center"}>Username</Typography>
+          <TextField style={{width:matchesMD?"100%":"30%"}} onChange = {(e)=>{setUser(e.target.value)}} placeholder='Type your username here' variant='filled'/>
       </Grid>
-      <Grid item container style={{marginTop:"1em"}}>
-          <Typography style={{fontWeight:900}}>Password</Typography>
-          <TextField style={{width:"100%"}} onChange = {(e)=>{setPassword(e.target.value)}} placeholder='Type your password here' variant='filled'/>
+      <Grid item container justifyContent="center" style={{marginTop:"1em"}}>
+          <Typography style={{fontWeight:900,width:"100%"}} align={matchesMD?undefined:"center"}>Password</Typography>
+          <TextField style={{width:matchesMD?"100%":"30%"}} onChange = {(e)=>{setPassword(e.target.value)}} placeholder='Type your password here' variant='filled'/>
       </Grid>
       <Snackbar
         anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
@@ -81,8 +81,8 @@ function Register() {
         message="User Already Exists"
         style={{marginBottom:"4em"}}
       />
-      <Grid item container style={{marginTop:"auto"}}>
-        <Button variant="contained" onClick={()=>{handleRegister()}} style={{width:"100%",backgroundColor:"#F2C94C"}}>Register</Button>
+      <Grid item container justifyContent="center" style={{marginTop:"auto"}}>
+        <Button variant="contained" onClick={()=>{handleRegister()}} style={{width:"30%",marginBottom:"2em",backgroundColor:"#F2C94C",marginTop:"3em"}}>Register</Button>
       </Grid>
     </Grid>
   );
